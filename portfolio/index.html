@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Creative Portfolio - Pastel Blue Theme</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #E8F0FE; /* pastel blue */
+    color: #2C3E50;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    background: #FFFFFF;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.1);
+    text-align: center;
+  }
+
+  /* Profile picture container */
+  .profile-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  .profile-container img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 6px solid #AED6F1; /* lighter pastel blue */
+    box-shadow: 0 0 18px #85C1E9AA;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .profile-container img:hover {
+    transform: scale(1.12) rotate(5deg);
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    color: #1B2631;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .tagline {
+    font-size: 1.3rem;
+    color: #5D6D7E;
+    font-style: italic;
+  }
+
+  nav {
+    margin-top: 22px;
+  }
+
+  nav button {
+    background: #AED6F1; /* pastel blue */
+    border: none;
+    color: #1B2631;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 36px;
+    margin: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(174, 214, 241, 0.6);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  nav button:hover,
+  nav button:focus {
+    background: #5499C7;
+    color: #fff;
+    outline: none;
+    box-shadow: 0 0 20px #5499C7CC;
+  }
+
+  main {
+    flex-grow: 1;
+    max-width: 950px;
+    margin: 40px auto 60px;
+    background: #FFFFFF;
+    padding: 40px 35px;
+    border-radius: 22px;
+    box-shadow: 0 0 35px #85C1E9AA;
+    color: #2C3E50;
+    font-size: 1.15rem;
+    line-height: 1.65;
+  }
+
+  main h2 {
+    font-size: 2.6rem;
+    margin-bottom: 28px;
+    border-bottom: 3px solid #AED6F1;
+    padding-bottom: 14px;
+    color: #1B2631;
+    letter-spacing: 1.5px;
+  }
+
+  /* Grid for cards */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 26px;
+  }
+
+  /* Cards for certificates/projects */
+  .card {
+    background: #EAF2F8; /* lighter pastel blue */
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 6px 22px rgba(174, 214, 241, 0.45);
+    color: #34495E;
+  }
+  .card h3 {
+    margin-bottom: 14px;
+  }
+  .card img {
+    width: 100%;
+    border-radius: 14px;
+    margin-top: 14px;
+    box-shadow: 0 0 14px #AED6F1CC;
+    object-fit: cover;
+  }
+
+  /* Qualifications flex */
+  .qualifications-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+  }
+  .edu-block {
+    background: #EAF2F8;
+    padding: 22px;
+    border-radius: 22px;
+    width: 300px;
+    box-shadow: 0 6px 22px rgba(134, 168, 211, 0.5);
+    text-align: center;
+    color: #34495E;
+  }
+  .edu-block img {
+    width: 100%;
+    border-radius: 22px;
+    margin-top: 18px;
+    box-shadow: 0 0 18px #AED6F1CC;
+    object-fit: cover;
+  }
+
+  /* Resume links */
+  .resume-link {
+    display: inline-block;
+    background-color: #AED6F1;
+    color: #1B2631;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 16px 42px;
+    border-radius: 42px;
+    box-shadow: 0 6px 18px rgba(174, 214, 241, 0.7);
+    margin-right: 22px;
+    transition: background-color 0.3s ease;
+  }
+  .resume-link:hover {
+    background-color: #5499C7;
+    color: #fff;
+    box-shadow: 0 9px 28px rgba(84, 153, 199, 0.9);
+  }
+
+  /* Welcome message */
+  .welcome {
+    text-align: center;
+    padding: 100px 20px;
+    color: #5499C7;
+    font-weight: 600;
+    text-shadow: 0 0 15px #5499C7BB;
+  }
+  .welcome h2 {
+    font-size: 3.6rem;
+    margin-bottom: 18px;
+  }
+
+  /* Responsive */
+  @media (max-width: 620px) {
+    nav button {
+      margin: 8px 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+    }
+    .edu-block {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="profile-container">
+    <img src="profile.jpg" alt="Your Photo" />
+    <h1>MAHITHA GATREDDI</h1>
+    <p class="tagline">Creative Developer & Enthusiast</p>
+  </div>
+  <nav>
+    <button onclick="loadSection('about')">About</button>
+    <button onclick="loadSection('certificates')">Certificates</button>
+    <button onclick="loadSection('projects')">Projects</button>
+    <button onclick="loadSection('qualifications')">Qualifications</button>
+    <button onclick="loadSection('resume')">Resume</button>
+  </nav>
+</header>
+
+<main id="content">
+  <div class="welcome">
+    <h2>Welcome to My Portfolio!</h2>
+    <p>Click on the options above to explore my journey, achievements, and skills.</p>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 MAHITHA GATREDDI
+</footer>
+
+<script>
+  function loadSection(section) {
+    const content = document.getElementById("content");
+
+    if(section === 'about') {
+      content.innerHTML = `
+        <section id="about-section">
+          <h2>About Me</h2>
+          <p>Hello! I'm <strong>Mahitha</strong>, a passionate and creative developer. I love crafting elegant and efficient solutions to real-world problems.</p>
+          <p>With a background in Computer Science, I continually strive to learn new technologies and improve my skills to make a positive impact through my projects.</p>
+        </section>
+      `;
+    }
+    else if(section === 'certificates') {
+      content.innerHTML = `
+        <section id="certificates-section">
+          <h2>Certificates</h2>
+          <p>Here are some certificates I've earned during my academic and competitive journey:</p>
+          <div class="grid-container">
+            <div class="card">
+              <h3>Certificate of PEER MENTORING - 2025</h3>
+              <img src="certificate1.jpg" alt="Certificate 1" />
+            </div>
+            <div class="card">
+              <h3>ITERNITY Hackathon 2025- Participant</h3>
+              <img src="certificate2.jpg" alt="Certificate 2" />
+            </div>
+            <!-- Add more certificates as needed -->
+          </div>
+        </section>
+      `;
+    }
+    else if(section === 'projects') {
+      content.innerHTML = `
+        <section id="projects-section">
+          <h2>Projects</h2>
+          <div class="grid-container">
+            <div class="card">
+              <h3>Smart Attendance System</h3>
+              <p>Developed an automated facial recognition attendance system to improve efficiency and accuracy.</p>
+              <img src="project1.jpg" alt="Smart Attendance System" />
+            </div>
+            <div class="card">
+              <h3>Personal Portfolio Website</h3>
+              <p>Designed and built this portfolio website using HTML, CSS, and JavaScript showcasing my skills and projects.</p>
+              <img src="project2.jpg" alt="Portfolio Website" />
+            </div>
+            <div class="card">
+            <h3>Business Franchising Website</h3>
+              <p>Developed a knowledge and informational content on Business Franchising and with government details .</p>
+              <img src="project3.jpg" alt="Business Franchise" />
+            </div>
+            <!-- Add more projects as needed -->
+          </div>
+        </section>
+      `;
+    }
+    else if(section === 'qualifications') {
+      content.innerHTML = `
+        <section id="qualifications-section">
+          <h2>Qualifications</h2>
+          <p>My educational background with institution photos:</p>
+          <div class="qualifications-container">
+            <div class="edu-block">
+              <h3>High School</h3>
+              <p>St.Joseph's Girls High School — 10th Grade: 9.1 GPA</p>
+              <img src="school.jpg" alt="High School" />
+            </div>
+            <div class="edu-block">
+              <h3>Intermediate</h3>
+              <p>SR Educational Junior College — 12th Grade: 95%</p>
+              <img src="inter.jpg" alt="Intermediate College" />
+            </div>
+            <div class="edu-block">
+              <h3>B.Tech in Department of Information Technology</h3>
+              <p> Engineering College — Current CGPA: 9.39</p>
+              <img src="btech.jpg" alt="B.Tech College" />
+            </div>
+          </div>
+        </section>
+      `;
+    }
+    else if(section === 'resume') {
+      content.innerHTML = `
+        <section id="resume-section" style="text-align:center;">
+          <h2>Resume</h2>
+          <p>You can view or download my resume below:</p>
+          <a href="resume.pdf" target="_blank" class="resume-link" rel="noopener">View Resume</a>
+          <a href="resume.pdf" download class="resume-link">Download Resume</a>
+        </section>
+      `;
+    }
+    else {
+      content.innerHTML = '<p>Section not found.</p>';
+    }
+  }
+</script>
+
+</body>
+</html>
